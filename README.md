@@ -32,22 +32,22 @@ We prove that applying regularized Mirror Descent (Nash-MD) to cyclic preference
 ### 1. Initial Cycle Distributions (Lemma 2)
 We mathematically bound the initial conditions of the system, proving that while uniform initialization guarantees cyclic behavior, the probability of initializing into a highly divergent, high-energy orbit decays exponentially.
 <br>
-<img src="./assets/lemma2_distribution.pdf" width="600" alt="Lemma 2 Distribution">
+<img src="./assets/lemma2_distribution.png" width="600" alt="Lemma 2 Distribution">
 
 ### 2. Algorithmic Phase Transitions (Theorem 1)
 Tracking the "excess energy" of the policy over discrete iterations empirically validates the precise mathematical thresholds where cycles expand, stabilize, or collapse.
 <br>
-<img src="./assets/theorem1_phasetransition.pdf" width="600" alt="Theorem 1 Phase Transition">
+<img src="./assets/theorem1_phasetransition.png" width="600" alt="Theorem 1 Phase Transition">
 
 ### 3. The Stochasticity Gap
 We formalize the impact of mini-batch gradient noise. Stochasticity injects massive expansive variance into the discrete drift, requiring a mathematically precise increase in the KL penalty to maintain cycle stability.
 <br>
-<img src="./assets/stochastic_drift.pdf" width="600" alt="Stochastic Drift">
+<img src="./assets/stochastic_drift.png" width="600" alt="Stochastic Drift">
 
 ### 4. High-Dimensionality and Neural Networks
 We prove that these continuous-time topological dynamics scale robustly. The identified phase transitions hold in high-dimensional ($N=50$) random tournaments and within the loss landscapes of parameterized PyTorch neural networks.
 <br>
-<img src="./assets/n_dim_drift.pdf" width="400" alt="N-Dimensional Drift"> <img src="./assets/nn_drift.pdf" width="400" alt="Neural Network Drift">
+<img src="./assets/n_dim_drift.png" width="400" alt="N-Dimensional Drift"> <img src="./assets/nn_drift.png" width="400" alt="Neural Network Drift">
 
 ---
 
@@ -56,11 +56,11 @@ We prove that these continuous-time topological dynamics scale robustly. The ide
 ```text
 ├── assets/
 │   ├── phase_transition.gif
-│   ├── lemma2_distribution.pdf
-│   ├── theorem1_phasetransition.pdf
-│   ├── stochastic_drift.pdf
-│   ├── n_dim_drift.pdf
-│   └── nn_drift.pdf
+│   ├── lemma2_distribution.png
+│   ├── theorem1_phasetransition.png
+│   ├── stochastic_drift.png
+│   ├── n_dim_drift.png
+│   └── nn_drift.png
 ├── notebooks/
 │   ├── 01_initial_distribution.ipynb      # Verifying the O(e^{-C/3}) tail
 │   ├── 02_tabular_phase_transition.ipynb  # Simulating discrete Nash-MD drift
