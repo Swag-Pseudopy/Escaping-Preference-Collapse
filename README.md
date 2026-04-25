@@ -1,0 +1,2 @@
+# Escaping-Preference-Collapse-Cycle-Dynamics-in-Nash-Learning-from-Human-Feedback
+Codebase and PyTorch simulations for 'Escaping Preference Collapse.' We analyze how non-transitive human preferences (Condorcet cycles) cause algorithmic instability in Nash Learning from Human Feedback (NLHF). Explore interactive notebooks detailing the exact phase transitions in regularized Mirror Descent needed to stabilize LLM alignment.
