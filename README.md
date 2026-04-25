@@ -52,6 +52,7 @@ We prove that these continuous-time topological dynamics scale robustly. The ide
 </p>
 
 **What this portrays:** The twin plots above confirm that our low-dimensional tabular theories successfully scale to highly complex environments. The left panel demonstrates that even in a chaotic 50-dimensional random tournament, a properly regularized policy still finds and locks into a stable limit cycle, proving dimensional invariance. The right panel represents the ultimate practical validation: tracking the output layer of a parameterized PyTorch neural network. Despite the non-linear distortions of the network's loss landscape, we distinctly observe the exact same expansive, stable, and collapsing regimes. This unequivocally proves that the topological phase transitions of Nash-MD govern deep learning models just as strictly as they do theoretical simplices.
+
 ---
 
 ## Repository Structure
