@@ -100,8 +100,3 @@ To locally regenerate the phase transition animation:
 python scripts/generate_animations.py
 ```
 
----
-
-
-## Acknowledgments
-The author gratefully acknowledges Prof. Weijie J. Su (University of Pennsylvania) and Prof. Swagatam Das (Indian Statistical Institute) for their foundational insights into the Condorcet Paradox, the statistical limits of reward models, and game-theoretic alignment.
