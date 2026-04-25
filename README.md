@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat&logo=pytorch&logoColor=white)](https://pytorch.org/)
-[![Paper](https://img.shields.io/badge/Paper-NeurIPS_Submission-b31b1b.svg)](#)
+
 
 > **Official codebase, PyTorch simulations, and interactive notebooks for analyzing algorithmic instability and phase transitions in Large Language Model (LLM) alignment.**
 
