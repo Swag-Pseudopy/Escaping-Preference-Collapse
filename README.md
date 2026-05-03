@@ -24,6 +24,48 @@ We prove that applying regularized Mirror Descent (Nash-MD) to cyclic preference
 * **Expansive Regime ($\tau \ll \eta$):** Discretization error strictly dominates, injecting fictitious energy into the system. The policy diverges toward the simplex boundary, triggering preference collapse.
 * **Stable Limit Cycle ($\tau \propto \eta$):** The expansive discretization error and the dissipative regularization balance precisely, sustaining a stable, non-zero limit cycle.
 * **Collapsing Regime ($\tau \gg \eta$):** Over-regularization dominates, monotonically contracting the cycle into the exact stationary Nash Equilibrium.
+---
+
+## Adiabatic Invariance Experiment
+
+### Simplex Animation
+
+The following GIFs visualise the policy orbits $p_t \in \Delta^2$ on the 
+2-simplicies (equilateral triangle) under three conditions:
+
+![Adiabatic Invariance - 1](./assets/simplex_adiabatic_.gif)
+![Adiabatic Invariance - 2](./assets/simplex_adiabatic.gif)
+
+- **Blue (Static):** $p_{\mathrm{ref}} = \mathbf{1}/3$ fixed. 
+  The policy orbits cleanly and stably around the Nash equilibrium 
+  (marked **+** at the centroid).
+- **Green (Slow drift, adiabatic):** $p_{\mathrm{ref}}(t)$ drifts 
+  slowly relative to the orbital period $T(C)$. The orbit remains 
+  bounded but its center shifts quasi-statically, tracking the 
+  reference — this is adiabatic invariance in action.
+- **Red (Fast drift, non-adiabatic):** $p_{\mathrm{ref}}(t)$ drifts 
+  faster than $1/T(C)$. The orbit becomes distorted and irregular, 
+  losing the clean cyclic structure.
+
+The **gray square** marks the current $p_{\mathrm{ref}}(t)$; note 
+that the policy does **not** converge to $p_{\mathrm{ref}}$ — it 
+is not supposed to. The KL regularization uses $p_{\mathrm{ref}}$ 
+to pull the orbit's energy level, not its destination. Response 
+diversity is preserved as long as drift is slow.
+
+### What changed between versions
+
+The first GIF used `tau = eta = 0.05`, which places the system 
+deep in the stable regime with a very small fixed point 
+$\tilde{C}^* = \bar{\mathcal{E}}_{\exp}/\kappa$, making the orbit 
+nearly invisible (policy hugging the centroid). The second version 
+sets `tau = 0.008` (with `eta = 0.05`), increasing the ratio 
+$\eta/\tau \approx 6$, which pushes $\tilde{C}^*$ higher and 
+expands the orbit to a visually meaningful radius. The drift 
+amplitude was also increased slightly (`0.35` convex weight 
+perturbation) so the gray reference square traverses a larger 
+region of the simplex, making the adiabatic orbit-center shift 
+distinguishable from the static case.
 
 ---
 
