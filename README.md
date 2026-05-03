@@ -26,6 +26,34 @@ We prove that applying regularized Mirror Descent (Nash-MD) to cyclic preference
 * **Collapsing Regime ($\tau \gg \eta$):** Over-regularization dominates, monotonically contracting the cycle into the exact stationary Nash Equilibrium.
 ---
 
+## Key Findings and Visualizations
+
+### 2. Algorithmic Phase Transitions (Theorem 1)
+Tracking the "excess energy" of the policy over discrete iterations empirically validates the precise mathematical thresholds where cycles expand, stabilize, or collapse.
+<br>
+<img src="./assets/theorem1_phasetransition.png" width="600" alt="Theorem 1 Phase Transition">
+
+**What this portrays:** As shown in the figure above, the simulation perfectly captures the three-phase theoretical predictions of Theorem 1. The red trajectory (Expansive regime) demonstrates the system gaining fictitious energy due to discretization error, causing the cycles to diverge outward. Conversely, the blue trajectory (Collapsing regime) shows the KL-regularization dominating, forcing the energy to plunge strictly to zero (the Nash Equilibrium). Crucially, the green trajectory highlights the Stable Limit Cycle, where expansive and dissipative forces perfectly cancel out, allowing the LLM policy to maintain a constant, non-zero orbit.
+
+### 3. The Stochasticity Gap
+We formalize the impact of mini-batch gradient noise. Stochasticity injects massive expansive variance into the discrete drift, requiring a mathematically precise increase in the KL penalty to maintain cycle stability.
+<br>
+<img src="./assets/stochastic_drift.png" width="600" alt="Stochastic Drift">
+
+**What this portrays:** This figure illustrates the severe impact of gradient noise on cycle stability. While the baseline trajectory (Std = 0.0) maintains a perfectly stable limit cycle, introducing even moderate mini-batch noise (Std = 0.5 and Std = 1.0) injects immense expansive variance into the system. As predicted by our stochastic drift corollary, the added noise breaks the delicate balance of forces, causing previously stable orbits to aggressively diverge upwards. This confirms that in practical LLM training, the KL-penalty must be explicitly scaled up to absorb batch variance.
+
+### 4. High-Dimensionality and Neural Networks
+We prove that these continuous-time topological dynamics scale robustly. The identified phase transitions hold in high-dimensional ($N=50$) random tournaments and within the loss landscapes of parameterized PyTorch neural networks.
+<br>
+<p float="left">
+  <img src="./assets/n_dim_drift.png" width="400" alt="N-Dimensional Drift">
+  <img src="./assets/nn_drift (2).png" width="400" alt="Neural Network Drift">
+</p>
+
+**What this portrays:** The twin plots above confirm that our low-dimensional tabular theories successfully scale to highly complex environments. The left panel demonstrates that even in a chaotic 50-dimensional random tournament, a properly regularized policy still finds and locks into a stable limit cycle, proving dimensional invariance. The right panel represents the ultimate practical validation: tracking the output layer of a parameterized PyTorch neural network. Despite the non-linear distortions of the network's loss landscape, we distinctly observe the exact same expansive, stable, and collapsing regimes. This unequivocally proves that the topological phase transitions of Nash-MD govern deep learning models just as strictly as they do theoretical simplices.
+
+---
+
 ## Adiabatic Invariance Experiment
 
 ### Simplex Animation
@@ -69,33 +97,6 @@ distinguishable from the static case.
 
 ---
 
-## Key Findings and Visualizations
-
-### 2. Algorithmic Phase Transitions (Theorem 1)
-Tracking the "excess energy" of the policy over discrete iterations empirically validates the precise mathematical thresholds where cycles expand, stabilize, or collapse.
-<br>
-<img src="./assets/theorem1_phasetransition.png" width="600" alt="Theorem 1 Phase Transition">
-
-**What this portrays:** As shown in the figure above, the simulation perfectly captures the three-phase theoretical predictions of Theorem 1. The red trajectory (Expansive regime) demonstrates the system gaining fictitious energy due to discretization error, causing the cycles to diverge outward. Conversely, the blue trajectory (Collapsing regime) shows the KL-regularization dominating, forcing the energy to plunge strictly to zero (the Nash Equilibrium). Crucially, the green trajectory highlights the Stable Limit Cycle, where expansive and dissipative forces perfectly cancel out, allowing the LLM policy to maintain a constant, non-zero orbit.
-
-### 3. The Stochasticity Gap
-We formalize the impact of mini-batch gradient noise. Stochasticity injects massive expansive variance into the discrete drift, requiring a mathematically precise increase in the KL penalty to maintain cycle stability.
-<br>
-<img src="./assets/stochastic_drift.png" width="600" alt="Stochastic Drift">
-
-**What this portrays:** This figure illustrates the severe impact of gradient noise on cycle stability. While the baseline trajectory (Std = 0.0) maintains a perfectly stable limit cycle, introducing even moderate mini-batch noise (Std = 0.5 and Std = 1.0) injects immense expansive variance into the system. As predicted by our stochastic drift corollary, the added noise breaks the delicate balance of forces, causing previously stable orbits to aggressively diverge upwards. This confirms that in practical LLM training, the KL-penalty must be explicitly scaled up to absorb batch variance.
-
-### 4. High-Dimensionality and Neural Networks
-We prove that these continuous-time topological dynamics scale robustly. The identified phase transitions hold in high-dimensional ($N=50$) random tournaments and within the loss landscapes of parameterized PyTorch neural networks.
-<br>
-<p float="left">
-  <img src="./assets/n_dim_drift.png" width="400" alt="N-Dimensional Drift">
-  <img src="./assets/nn_drift (2).png" width="400" alt="Neural Network Drift">
-</p>
-
-**What this portrays:** The twin plots above confirm that our low-dimensional tabular theories successfully scale to highly complex environments. The left panel demonstrates that even in a chaotic 50-dimensional random tournament, a properly regularized policy still finds and locks into a stable limit cycle, proving dimensional invariance. The right panel represents the ultimate practical validation: tracking the output layer of a parameterized PyTorch neural network. Despite the non-linear distortions of the network's loss landscape, we distinctly observe the exact same expansive, stable, and collapsing regimes. This unequivocally proves that the topological phase transitions of Nash-MD govern deep learning models just as strictly as they do theoretical simplices.
-
----
 
 ## Repository Structure
 
